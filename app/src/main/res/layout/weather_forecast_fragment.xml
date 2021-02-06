@@ -6,6 +6,7 @@
     tools:context=".presentation.ui.forecastweather.ForecastWeatherFragment">
 
     <TextView
+        android:id="@+id/texto_1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="Forecast weather fragment" />

@@ -1,32 +1,41 @@
 package com.example.weekweather.presentation.ui.forecastweather
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import com.example.weekweather.R
+import com.example.weekweather.databinding.WeatherForecastFragmentBinding
+import com.example.weekweather.presentation.ui.BaseFragment
 
-class ForecastWeatherFragment : Fragment() {
+class ForecastWeatherFragment : BaseFragment() {
 
-    companion object {
-        fun newInstance() = ForecastWeatherFragment()
+    override fun layoutId(): Int = R.layout.weather_forecast_fragment
+
+
+    private var forecastFragmentBinding: WeatherForecastFragmentBinding? = null
+
+    private val weatherViewModel: ForecastWeatherViewModel by viewModels { viewModelFactory }
+
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+       setUpViewModel()
     }
 
-    private lateinit var weatherViewModel: ForecastWeatherViewModel
+    override fun setUpViewModel() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.weather_forecast_fragment, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        weatherViewModel = ViewModelProvider(this).get(ForecastWeatherViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val binding = WeatherForecastFragmentBinding.bind(view)
+        forecastFragmentBinding = binding
+        binding.texto1.text = weatherViewModel.forecastText
     }
 
+    override fun onDestroyView() {
+        forecastFragmentBinding = null
+        super.onDestroyView()
+    }
 }

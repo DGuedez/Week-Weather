@@ -22,6 +22,7 @@ import javax.inject.Singleton
 )
 interface WeatherComponent {
     fun inject(target: BaseFragment)
+    fun inject(target: ForecastWeatherFragment)
 
     @Component.Builder
     interface Builder{

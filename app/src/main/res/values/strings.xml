@@ -10,4 +10,9 @@
     <string name="location">Ubicación</string>
     <string name="feels_like">Sensación Térmica de %1$sºC ,  %2$s </string>
     <string name="current_weather">Clima Actual</string>
+    <string name="loading">Cargando</string>
+    <string name="min_Temperature">min %s ºC</string>
+    <string name="max_Temperature">max %s ºC</string>
+    <string name="weather_description">Clima: %s</string>
+
 </resources>

@@ -19,6 +19,7 @@ abstract class BaseFragment: Fragment() {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
+
     private var mView: View? = null
 
 
@@ -33,12 +34,16 @@ abstract class BaseFragment: Fragment() {
 
  abstract fun setUpViewModel()
 
+ abstract fun showProgressScreen()
+ abstract fun hideProgressScreen()
+
+
     override fun onAttach(context: Context) {
         getComponentInjection(context)
         super.onAttach(context)
     }
 
-    private fun getComponentInjection(context: Context) {
+     private fun getComponentInjection(context: Context) {
         (context.applicationContext as WeatherApplication)
             .weatherComponent.inject(this)
     }

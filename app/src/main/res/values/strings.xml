@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">weekWeather</string>
+    <string name="wind">Viento</string>
+    <string name="pressure">Presión</string>
+    <string name="humidity">Humedad</string>
+    <string name="celsius">%s ºC</string>
+    <string name="wind_metric">%s m/s SSE</string>
+    <string name="pressure_metric">%s hPa</string>
+    <string name="humidity_metric">%1$s%%</string>
+    <string name="location">Ubicación</string>
+    <string name="feels_like">Sensación Térmica de %1$sºC ,  %2$s </string>
+    <string name="current_weather">Clima Actual</string>
+    <string name="loading">Cargando</string>
+    <string name="min_Temperature">min %s ºC</string>
+    <string name="max_Temperature">max %s ºC</string>
+    <string name="weather_description">Clima: %s</string>
+
+    <string name="morning">Mañana</string>
+    <string name="evening">Tarde</string>
+    <string name="night">Noche</string>
+    <string name="temperature">Temperatura</string>
+    <string name="no_selected_day_data">No se pudo obtener dato del dia seleccionado. Por favor intente nuevamente</string>
+    <string name="max_min_description">La máxima será de %1$sºC , la mínima de %2$s   </string>
+
+</resources>

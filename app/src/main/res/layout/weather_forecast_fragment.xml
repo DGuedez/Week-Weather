@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/screen_background"
+    tools:context=".presentation.ui.forecastweather.ForecastWeatherFragment">
+
+
+    <TextView
+        android:id="@+id/weatherLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/location"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/weatherTemperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/celsius"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/weatherLocation"
+        app:layout_constraintStart_toStartOf="@id/weatherLocation"
+        app:layout_constraintTop_toBottomOf="@id/weatherLocation" />
+
+    <TextView
+        android:id="@+id/weatherWind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/wind"
+        app:layout_constraintEnd_toEndOf="@id/weatherWindValue"
+        app:layout_constraintStart_toStartOf="@id/weatherWindValue"
+        app:layout_constraintTop_toBottomOf="@id/weatherWindValue" />
+
+    <TextView
+        android:id="@+id/weatherWindValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/wind_metric"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/weatherPressureValue"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/weatherPressureValue" />
+
+    <TextView
+        android:id="@+id/weatherPressureValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:gravity="center_horizontal"
+        android:text="@string/pressure_metric"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/weatherHumidityValue"
+        app:layout_constraintHorizontal_bias="0.5"
+
+
+        app:layout_constraintStart_toEndOf="@+id/weatherWindValue"
+        app:layout_constraintTop_toBottomOf="@+id/weatherFeelsLike" />
+
+    <TextView
+        android:id="@+id/weatherPressure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/pressure"
+        app:layout_constraintEnd_toEndOf="@+id/weatherPressureValue"
+        app:layout_constraintStart_toStartOf="@+id/weatherPressureValue"
+        app:layout_constraintTop_toTopOf="@+id/weatherWind" />
+
+    <TextView
+        android:id="@+id/weatherHumidityValue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/humidity_metric"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+
+        app:layout_constraintStart_toEndOf="@+id/weatherPressureValue"
+        app:layout_constraintTop_toTopOf="@+id/weatherPressureValue" />
+
+    <TextView
+        android:id="@+id/weatherHumidity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/humidity"
+        app:layout_constraintEnd_toEndOf="@id/weatherHumidityValue"
+        app:layout_constraintStart_toStartOf="@id/weatherHumidityValue"
+        app:layout_constraintTop_toTopOf="@+id/weatherWind" />
+
+
+    <TextView
+        android:id="@+id/weatherFeelsLike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/feels_like"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="@id/weatherTemperature"
+        app:layout_constraintStart_toStartOf="@+id/weatherTemperature"
+        app:layout_constraintTop_toBottomOf="@id/weatherTemperature" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/current_weather"
+        android:textStyle="italic|bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="40dp"
+        android:alpha="0.1"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weatherPressure" />
+
+    <include
+        android:id="@+id/forecastProgressScreen"
+        layout="@layout/progress_screen"
+        android:visibility="gone"
+        tools:visibility="gone" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/weatherForecastRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        tools:itemCount="5"
+        tools:listitem="@layout/forecast_day_element" />
+</androidx.constraintlayout.widget.ConstraintLayout>

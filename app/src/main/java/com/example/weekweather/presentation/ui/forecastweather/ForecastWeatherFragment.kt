@@ -3,9 +3,9 @@ package com.example.weekweather.presentation.ui.forecastweather
 import android.content.Context
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.weekweather.R
 import com.example.weekweather.application.WeatherApplication
@@ -28,24 +28,24 @@ class ForecastWeatherFragment : BaseFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initialCondition()
         setUpViewModel()
     }
 
-    private fun initialCondition() {
+    override fun initialCondition() {
+        showProgressScreen()
         weatherViewModel.loadForecastWeather()
     }
 
-    override fun showProgressScreen() {
+    private fun showProgressScreen() {
         forecastFragmentBinding?.forecastProgressScreen?.root?.visibility = View.VISIBLE
     }
 
-    override fun hideProgressScreen() {
+    private fun hideProgressScreen() {
         forecastFragmentBinding?.forecastProgressScreen?.root?.visibility = View.GONE
     }
 
     override fun setUpViewModel() {
-        weatherViewModel.forecastLiveData.observe(this, Observer { handleForecastResponse(it) })
+        weatherViewModel.forecastLiveData.observe(this@ForecastWeatherFragment, Observer { handleForecastResponse(it) })
     }
 
     private fun handleForecastResponse(foreCastResponse: ForeCastResponse) {
@@ -58,27 +58,34 @@ class ForecastWeatherFragment : BaseFragment() {
     }
 
     private fun setUpForecastWeekList(list: List<ForeCastResponse.Daily>?) {
-        forecastWeekListAdapter.run {
-            items = list as MutableList<ForeCastResponse.Daily>
-            actionListener = getForeCastListActionListener()
-        }
         forecastFragmentBinding?.weatherForecastRecyclerView?.run {
             layoutManager = LinearLayoutManager(
                 requireActivity(),
                 LinearLayoutManager.VERTICAL,
                 false
             )
-            adapter = forecastWeekListAdapter
+            adapter = getForecastListAdapterReady(list)
+        }
+    }
+
+    private fun getForecastListAdapterReady(list: List<ForeCastResponse.Daily>?): ForecastListAdapter {
+        return forecastWeekListAdapter.apply {
+            items = list as MutableList<ForeCastResponse.Daily>
+            actionListener = getForeCastListActionListener()
         }
     }
 
     private fun getForeCastListActionListener(): ForecastListAdapter.ActionListener {
         return object : ForecastListAdapter.ActionListener {
             override fun onDayClick(selectedDay: ForeCastResponse.Daily) {
-                Toast.makeText(requireActivity(), "Forecast item selected", Toast.LENGTH_SHORT)
-                    .show()
+                weatherViewModel.selectedForecastDayLiveData.value = selectedDay
+                goToSelectedDay()
             }
         }
+    }
+
+    private fun goToSelectedDay() {
+        findNavController().navigate(R.id.action_weatherForecastFragment_to_selectedForecastDayFragment)
     }
 
     private fun setCurrentWeatherInfo(foreCastResponse: ForeCastResponse) {
@@ -113,7 +120,8 @@ class ForecastWeatherFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         val binding = WeatherForecastFragmentBinding.bind(view)
         forecastFragmentBinding = binding
-        showProgressScreen()
+        initialCondition()
+
     }
 
     override fun onDestroyView() {

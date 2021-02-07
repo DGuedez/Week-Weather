@@ -13,14 +13,27 @@ class ForecastWeatherViewModel @Inject constructor(private val forecastUseCase: 
     ViewModel() {
 
     var forecastLiveData = MutableLiveData<ForeCastResponse>()
+    var forecast: ForeCastResponse?
+        get() = forecastLiveData.value
+        set(value) {
+            forecastLiveData.value = value
+        }
+
+
+    val selectedForecastDayLiveData = MutableLiveData<ForeCastResponse.Daily>()
+    var selectedForecastDay: ForeCastResponse.Daily?
+        get() = selectedForecastDayLiveData.value
+        set(value) {
+            selectedForecastDayLiveData.value = value
+        }
+
 
     fun loadForecastWeather() {
-
         viewModelScope.launch {
             try {
-                forecastLiveData.value = (forecastUseCase.invoke(this) )
+                forecastLiveData.value = (forecastUseCase.invoke(this))
             } catch (e: Exception) {
-                Log.d("Exeption",e.stackTraceToString())
+                Log.d("Exeption", e.stackTraceToString())
             }
 
         }

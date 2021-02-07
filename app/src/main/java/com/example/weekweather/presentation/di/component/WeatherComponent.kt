@@ -6,6 +6,7 @@ import com.example.weekweather.domain.entity.APIServiceToken
 import com.example.weekweather.presentation.di.module.*
 import com.example.weekweather.presentation.ui.BaseFragment
 import com.example.weekweather.presentation.ui.forecastweather.ForecastWeatherFragment
+import com.example.weekweather.presentation.ui.selectedforecastday.SelectedForecastDayFragment
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Inject
@@ -23,6 +24,7 @@ import javax.inject.Singleton
 interface WeatherComponent {
     fun inject(target: BaseFragment)
     fun inject(target: ForecastWeatherFragment)
+    fun inject(target:SelectedForecastDayFragment)
 
     @Component.Builder
     interface Builder{

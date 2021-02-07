@@ -15,4 +15,11 @@
     <string name="max_Temperature">max %s ºC</string>
     <string name="weather_description">Clima: %s</string>
 
+    <string name="morning">Mañana</string>
+    <string name="evening">Tarde</string>
+    <string name="night">Noche</string>
+    <string name="temperature">Temperatura</string>
+    <string name="no_selected_day_data">No se pudo obtener dato del dia seleccionado. Por favor intente nuevamente</string>
+    <string name="max_min_description">La máxima será de %1$sºC , la mínima de %2$s   </string>
+
 </resources>

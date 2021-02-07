@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/screen_background"
+    tools:context=".presentation.ui.selectedforecastday.SelectedForecastDayFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/selectedDayInfoContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/selectedDayDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lunes 10 Feb"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/selectedDayWeatherDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="40dp"
+            android:text="Cielo despejado, mucho sol"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/selectedDayDate" />
+
+        <TextView
+            android:id="@+id/selectedDayMaxMinDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text=""
+            app:layout_constraintStart_toStartOf="@+id/selectedDayWeatherDescription"
+            app:layout_constraintTop_toBottomOf="@+id/selectedDayWeatherDescription" />
+
+        <TextView
+            android:id="@+id/selectedDayFeelsLikeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Sensación \nTérmica"
+            app:layout_constraintStart_toStartOf="@+id/selectedDayTempertureLabel"
+            app:layout_constraintTop_toBottomOf="@+id/selectedDayTempertureLabel" />
+
+        <TextView
+            android:id="@+id/selectedDayMorningLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="56dp"
+            android:text="@string/morning"
+            app:layout_constraintStart_toEndOf="@+id/selectedDayTempertureLabel"
+            app:layout_constraintTop_toBottomOf="@+id/selectedDayMaxMinDescription" />
+
+        <TextView
+            android:id="@+id/selectedDayEveningLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:text="@string/evening"
+            app:layout_constraintStart_toEndOf="@+id/selectedDayMorningLabel"
+            app:layout_constraintTop_toTopOf="@+id/selectedDayMorningLabel" />
+
+        <TextView
+            android:id="@+id/selectedDayMorningLabelselectedDayNightLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:text="@string/night"
+            app:layout_constraintStart_toEndOf="@+id/selectedDayEveningLabel"
+            app:layout_constraintTop_toTopOf="@+id/selectedDayMorningLabel" />
+
+        <TextView
+            android:id="@+id/selectedDayDtemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/selectedDayTempertureLabel"
+            app:layout_constraintEnd_toEndOf="@+id/selectedDayMorningLabel"
+            app:layout_constraintStart_toStartOf="@+id/selectedDayMorningLabel"
+            app:layout_constraintTop_toTopOf="@+id/selectedDayTempertureLabel" />
+
+        <TextView
+            android:id="@+id/selectedDayTempertureLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/temperature"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/selectedDayMorningLabel" />
+
+        <TextView
+            android:id="@+id/selectedDayDFeels"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/selectedDayFeelsLikeLabel"
+            app:layout_constraintEnd_toEndOf="@+id/selectedDayMorningLabel"
+            app:layout_constraintStart_toStartOf="@+id/selectedDayMorningLabel"
+            app:layout_constraintTop_toTopOf="@+id/selectedDayFeelsLikeLabel" />
+
+        <TextView
+            android:id="@+id/selectedDayEtemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/selectedDayTempertureLabel"
+            app:layout_constraintEnd_toEndOf="@+id/selectedDayEveningLabel"
+            app:layout_constraintStart_toStartOf="@+id/selectedDayEveningLabel"
+            app:layout_constraintTop_toTopOf="@+id/selectedDayTempertureLabel" />
+
+        <TextView
+            android:id="@+id/selectedDayEFeels"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/selectedDayFeelsLikeLabel"
+            app:layout_constraintStart_toStartOf="@+id/selectedDayEtemp"
+            app:layout_constraintTop_toTopOf="@+id/selectedDayFeelsLikeLabel" />
+
+        <TextView
+            android:id="@+id/selectedDayNtemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/selectedDayTempertureLabel"
+            app:layout_constraintEnd_toEndOf="@+id/selectedDayMorningLabelselectedDayNightLabel"
+            app:layout_constraintStart_toStartOf="@+id/selectedDayMorningLabelselectedDayNightLabel"
+            app:layout_constraintTop_toTopOf="@+id/selectedDayTempertureLabel" />
+
+        <TextView
+            android:id="@+id/selectedDayNFeels"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/selectedDayFeelsLikeLabel"
+            app:layout_constraintEnd_toEndOf="@+id/selectedDayMorningLabelselectedDayNightLabel"
+            app:layout_constraintStart_toStartOf="@+id/selectedDayMorningLabelselectedDayNightLabel"
+            app:layout_constraintTop_toTopOf="@+id/selectedDayFeelsLikeLabel" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/selectedDayNoDataContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="10dp"
+            android:text="@string/no_selected_day_data"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -33,9 +33,7 @@ abstract class BaseFragment: Fragment() {
     }
 
  abstract fun setUpViewModel()
-
- abstract fun showProgressScreen()
- abstract fun hideProgressScreen()
+ abstract fun initialCondition()
 
 
     override fun onAttach(context: Context) {

@@ -35,6 +35,7 @@ data class ForeCastResponse(
     data class Daily(
         @SerializedName("dt") val dt: String?,
         @SerializedName("temp") val temp: Temp?,
+        @SerializedName("feels_like") val thermalSensation: ThermalSensation?,
         @SerializedName("pressure") val pressure: String?,
         @SerializedName("humidity") val humidity: String?,
         @SerializedName("wind_speed") val wind_speed: String?,
@@ -46,6 +47,14 @@ data class ForeCastResponse(
             @SerializedName("day") val day: String?,
             @SerializedName("min") val min: String?,
             @SerializedName("max") val max: String?,
+            @SerializedName("night") val night: String?,
+            @SerializedName("eve") val eve: String?,
+            @SerializedName("morn") val morn: String?,
+        ) : Parcelable
+
+        @Parcelize
+        data class ThermalSensation(
+            @SerializedName("day") val day: String?,
             @SerializedName("night") val night: String?,
             @SerializedName("eve") val eve: String?,
             @SerializedName("morn") val morn: String?,
